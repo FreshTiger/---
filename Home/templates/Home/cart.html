@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% load static %}
+    {% load bootstrap3 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript jquery='full' %}
+    <link rel="stylesheet" href="{% static 'Home/css/cart.css' %}">
+</head>
+
+<body style="background-image:url({% static 'Home/images/body.jpeg' %}); background-size:100% 100%">
+    <div class="head">
+        <div class="Thead">专属你的COFFEE驿站</div>
+    </div>
+    <div class='mid'>
+        <div class='title'>
+            <span>我的购物车</span>
+            <span class="glyphicon glyphicon-triangle-bottom"></span>
+        </div>
+        <div class='content'>
+            {% if cart %}
+                {% for goods in cart %}
+                <div class='goods'>
+                    <div class='number'>数量：{{goods.quantity}}</div>
+                    <div class='photo'><img src ='{{MEDIA_URL}}{{goods.photo}}'></div>
+                    <div class='name'>{{goods.name}}</div>
+                    <div class='price'>单价：<span class='glyphicon glyphicon-yen'></span>{{goods.price}}</div>
+                </div>
+                {% endfor %}
+                <div class='buy'>
+                    <div class='buy-buy'>
+                        <a href="{% url 'Home:buy' %}" ><button class='btn btn-primary'>结算</button></a>
+                    </div>
+                    <div class='totle' >
+                            合计：<span class='glyphicon glyphicon-yen'>{{totlePrice}}
+                    </div>
+                </div>
+            {% else %}
+                <div class='blank'>
+                    <span>这里空空如也返回</span>
+                    <a href="{% url 'Home:index' %}">首页</a>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+    <div class="foot">
+        <span>网站导航:</span>
+        <a href="http://127.0.0.1:8000/index/"><span>首页</span></a>
+        <a href="http://www.shufe.edu.cn/structure/index.psp" target="_blank"><span>上海财经大学</span></a>
+        <a href="https://www.taobao.com/" target="_blank"><span>淘宝网</span></a>
+        <a href="https://www.jd.com/" target="_blank"><span>京东</span></a>
+    </div>
+</body>

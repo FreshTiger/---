@@ -1,0 +1,122 @@
+html,body{
+    width: 100%;
+    height:100%;
+}
+.head {
+    width:100%;
+    height: 90px;
+    font-size: 30px;
+    line-height: 90px;
+    display:flex;
+    flex-direction: row;
+    background-color: rgba(0,0,0,0.5);
+    color:wheat;
+    padding-left: 7%;
+    padding-right: 7%;
+}
+.Thead {
+    width:70%;
+}
+.cart {
+    width:30%;
+}
+.title {
+    width:100%;
+    height: 50px;
+    line-height: 50px;
+    padding:0 7% 0 7%;
+    background-color:rgba(0,0,0,0.7);
+    color:wheat;
+}
+
+.mid{
+    width:100%;
+}
+
+.content {
+    width:100%;
+    padding:0 7% 0 7%;
+    display: flex;
+    flex-direction: row;
+    background-color: rgba(0,0,0,0.7);
+}
+.mid-left{
+    width:35%;
+    height: 100%;
+    border:2px solid #f2f2f2;
+}
+.mid-left img {
+    width:100%;
+    height: 100%;
+}
+.mid-right {
+    padding-left: 40px;
+    width:65%;
+    height: 100%;
+    color:wheat;
+}
+.info {
+    height:40px;
+    line-height: 40px;
+    color:wheat;
+    font-size: 20px;
+}
+.intro {
+    border-top: 2px solid black;
+    height:80px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 20px;
+}
+.price {
+    border-top: 2px solid black;
+    height:50px;
+    padding-top:10px;
+    padding-bottom: 10px;
+    font-size: 30px;
+    color:red;
+}
+.addCart {
+    width:20%;
+    margin-top: 20px;
+    height: 40px;
+    border-radius: 5px;
+    background-color:peru;
+    font-size:20px;
+    line-height: 40px;
+    text-align: center;
+}
+.addCart a {
+    text-decoration: none;
+    outline: none;
+    color:white;
+}
+.buy {
+    width:20%;
+    margin-top: 20px;
+    height: 40px;
+    border-radius: 5px;
+    background-color:rgb(131, 76, 21);
+    font-size:20px;
+    line-height: 40px;
+    text-align: center;
+}
+.buy a {
+    text-decoration: none;
+    outline: none;
+    color:white;
+}
+.foot  {
+    width:100%;
+    height:70px;
+    line-height: 70px;
+    padding:0 7% 0 7%;
+    text-align: center;
+    background-color: rgba(0,0,0,0.5);
+    font-size:20px;
+    color:wheat;
+}
+
+a span {
+    margin-left: 5px;
+}

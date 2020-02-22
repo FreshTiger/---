@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% load static %}
+    {% load bootstrap3 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript jquery='full' %}
+    <link rel="stylesheet" href="{% static 'Home/css/goods.css' %}">
+</head>
+
+<body style="background-image:url({% static 'Home/images/body.jpeg' %}); background-size:100% 100%">
+    <div class="head">
+        <div class="Thead">专属你的COFFEE驿站</div>
+        <div class="cart">
+            <a href="{% url 'Home:cart'%}"><span class="glyphicon glyphicon-shopping-cart">购物车</span></a>
+        </div>
+    </div>
+    <div class='mid'>
+        <div class='title'>
+            <span>商品详情</span>
+            <span class="glyphicon glyphicon-triangle-bottom"></span>
+        </div>
+        <div id="myModal1" class="modal video-modal fade" tabindex="-1" role="dialog" aria-labelledby="myModal"
+            style="display:none" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">{{goods.name}}</div>
+                    <div class="modal-body">
+                        <form action="{% url 'Home:cart' %}" method="POST">
+                            {% csrf_token %}
+                            <input type="hidden"  name="goodsID" value="{{goods.goodsID}}"/>
+                            <span>购买数量</span>
+                            <div class='pur'>
+                                <div class='plus'>+</div>
+                                <div><input type="text" value='1' name="count"></div>
+                                <div class='minus'>-</div>
+                            </div>
+                            <button type='submit'>确定</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="myModal2" class="modal video-modal fade" tabindex="-1" role="dialog" aria-labelledby="myModal"
+        style="display:none" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">{{goods.name}}</div>
+                <div class="modal-body">
+                    <form action="{% url 'Home:cart' %}" method="POST">
+                        {% csrf_token %}
+                        <input type="hidden"  name="goodsID" value="{{goods.goodsID}}" />
+                        <span>购买数量</span>
+                        <input type="text" value='1' name="count"><br>
+                        <button type='submit'>立即购买</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class='content'>
+            <div class="mid-left">
+                <img src="{{MEDIA_URL}}{{goods.photo}}">
+            </div>
+            <div class="mid-right">
+                <div class="info">{{goods.name}}</div>
+                <div class="info">销量：{{goods.sale}}</div>
+                <div class="info">库存：{{goods.stroe}}</div>
+                <div class="intro"><p>{{goods.introduce}}</p></div>
+                <div class="price"><span class='glyphicon glyphicon-yen'></span>{{goods.price}}</div>
+                <div class="addCart"><a href="javascript:void(0)"  data-toggle="modal"
+                        data-target="#myModal1">加入购物车</a></div>
+                <div class="buy"><a href="javascript:void(0)"  data-toggle="modal"
+                    data-target="#myModal2">立即购买</a></div>
+            </div>
+        </div>
+    </div>
+    <div class="foot">
+        <span>网站导航:</span>
+        <a href="http://127.0.0.1:8000/index/"><span>首页</span></a>
+        <a href="http://www.shufe.edu.cn/structure/index.psp" target="_blank"><span>上海财经大学</span></a>
+        <a href="https://www.taobao.com/" target="_blank"><span>淘宝网</span></a>
+        <a href="https://www.jd.com/" target="_blank"><span>京东</span></a>
+    </div>
+</body>

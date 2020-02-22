@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% load static %}
+    {% load bootstrap3 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript jquery='full' %}
+    <link rel="stylesheet" href="{% static 'Home/css/search.css' %}">
+</head>
+
+<body style="background-image:url({% static 'Home/images/body.jpeg' %}); background-size:100% 100%">
+    <div class="head">
+        <div class="Thead">专属你的COFFEE驿站</div>
+        <div class="cart">
+            <a href="{% url 'Home:cart'%}"><span class="glyphicon glyphicon-shopping-cart">购物车</span></a>
+        </div>
+    </div>
+    <div class='mid'>
+        <div class='title'>
+            <span>搜索结果</span>
+            <span class="glyphicon glyphicon-triangle-bottom"></span>
+        </div>
+        <div class='content'>
+            <div class='row'>
+                {% for good in goods %}
+                <div class="col-sm-6 col-md-3">
+                    <div class="thumbnail">
+                        <a href="{% url 'Home:goods' good.goodsID %}">
+                            <img src="{{MEDIA_URL}}{{good.photo}}" alt="...">
+                            <div class="caption">
+                                <h3>{{good.Name}}</h3>
+                                <p>{{good.introduce}}</p>
+                                <p class="extra"><span class="glyphicon glyphicon-thumbs-up"></span>
+                                    {{good.sale}}人说好</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="foot">
+            <span>网站导航:</span>
+            <a href="http://127.0.0.1:8000/index/"><span>首页</span></a>
+            <a href="http://www.shufe.edu.cn/structure/index.psp" target="_blank"><span>上海财经大学</span></a>
+            <a href="https://www.taobao.com/" target="_blank"><span>淘宝网</span></a>
+            <a href="https://www.jd.com/" target="_blank"><span>京东</span></a>
+    </div>
+</body>
